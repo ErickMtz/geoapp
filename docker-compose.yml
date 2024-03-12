@@ -13,6 +13,7 @@ services:
     environment:
       - RAILS_ENV=${RAILS_ENV}
       - DATABASE_URL=${DATABASE_URL}
+      - IPSTACK_API_KEY=${IPSTACK_API_KEY}
   db:
     container_name: postgres_db
     image: postgres:latest
