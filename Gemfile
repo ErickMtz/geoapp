@@ -36,6 +36,9 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 
 gem 'faraday', '~> 2.9'
+gem 'bcrypt', '~> 3.1.7'
+gem 'jwt', '~> 2.2', '>= 2.2.3'
+gem 'rails_jwt_auth'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -45,6 +48,7 @@ end
 group :test do
   gem 'rspec-rails', '~> 6.1.0'
   gem "webmock"
+  gem 'shoulda-matchers', '~> 5.0'
   gem 'factory_bot_rails'
 end
 
