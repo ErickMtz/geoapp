@@ -42,7 +42,9 @@ module Api
       private
 
       def set_geolocation
-        @geolocation = Geolocation.find_by_ip(params[:ip])
+        ip = Resolv.getaddress(params[:ip]) # Resolve URL to IP
+        @geolocation = Geolocation.find_by(ip: ip)
+      rescue Resolv::ResolvError
       end
 
       def geolocation_params
