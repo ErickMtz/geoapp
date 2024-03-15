@@ -7,7 +7,7 @@ module Api
       def create
         @geolocation = Geolocation.find_by(ip: geolocation_params[:ip])
         return render json: @geolocation if @geolocation
-          
+
         response = fetch_geolocation_from_service(geolocation_params[:ip])
         if response.success?
           begin
@@ -22,9 +22,9 @@ module Api
       end
 
       def destroy
-        @geolocation.destroy
         return render json: { error: 'Geolocation not found' }, status: :not_found unless @geolocation
 
+        @geolocation.destroy
         head :no_content
       end
 
