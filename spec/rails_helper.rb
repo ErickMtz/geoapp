@@ -41,6 +41,27 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  DatabaseCleaner.allow_remote_database_url = true
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:suite) do
+    begin
+      DatabaseCleaner.start
+    ensure
+      DatabaseCleaner.clean
+    end
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 

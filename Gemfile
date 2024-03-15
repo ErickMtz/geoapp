@@ -46,6 +46,7 @@ group :test do
   gem 'rspec-rails', '~> 6.1.0'
   gem "webmock"
   gem 'factory_bot_rails'
+  gem 'database_cleaner-active_record'
 end
 
 group :development do
