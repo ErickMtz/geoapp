@@ -29,12 +29,24 @@ docker-compose up
 Access the API at http://localhost:{PORT}.
 
 ## Usage:
+Create a `.env` file in the root with the next fields. (Substitute `<ipstack_api_key>` with your ipstack api key)
+```
+DATABASE_URL=postgres://postgres:password@db:5432/geoapp_development
+POSTGRES_DB=geoapp_development
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=password
+RAILS_ENV=development
+
+IPSTACK_API_KEY=<ipstack_api_key>
+```
+
 1. Fetch JWT Token:
     - Make a POST request to `/authenticate` with `email` and `password` to obtain a JWT token.
+        - A default user is seeded with email: `user@example.com` and password: `password`.
 2. Access Geolocation Endpoints:
     - Use the obtained token in the Authorization header for making requests to `/api/v1/geolocations`.
     - Available actions: `index`, `show`, `create`, `delete`.
-    - `show` and `delete` endpoints accept an IP parameter.
+    - `show` and `delete` endpoints accept an `IP` parameter.
     - `create` endpoint accepts an `IP` parameter and finds or creates a geolocation object.
   
 ## Example:
