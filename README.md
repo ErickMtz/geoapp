@@ -55,3 +55,9 @@ Access the API at http://localhost:{PORT}.
   }
   ```
 
+## Test suite
+The tests are written in RSpec to execute the suite run:
+```bash
+docker-compose run -e "RAILS_ENV=test" web bundle exec rspec
+```
+
