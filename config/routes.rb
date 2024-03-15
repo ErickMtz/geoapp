@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       resources :geolocations, only: [:index, :create, :show, :destroy], param: :ip, constraints: { ip: /[^\/]+/ }
     end
   end
+
+  post '/authenticate', to: 'authentication#authenticate'
 end
