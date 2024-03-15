@@ -26,7 +26,7 @@ docker-compose build
 docker-compose up
 ```
 
-Access the API at http://localhost:{PORT}.
+Access the API at http://localhost:3000.
 
 ## Usage:
 Create a `.env` file in the root with the next fields. (Substitute `<ipstack_api_key>` with your ipstack api key)
